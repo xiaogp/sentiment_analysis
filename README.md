@@ -1,0 +1,2 @@
+# sentiment_analysis
+一个基于LSTM，TextCNN，fasttext实现的购物网站评论情感分析，使用tf_serving和flask部署模型
