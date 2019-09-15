@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/yckj1286/sentiment_analysis/textcnn_sentiment_model/1568547209/checkpoints/model-608"
+all_model_checkpoint_paths: "/home/yckj1286/sentiment_analysis/textcnn_sentiment_model/1568547209/checkpoints/model-608"

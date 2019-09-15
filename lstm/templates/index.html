@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    电商购物网站评论情感分析
+    <hr>
+    <div align="center" style="margin-top:80px">
+        <!-- <img src="../static/yurisa.jpg" alt="yurisa" height = "400px" /> -->
+        <img src=" {{url_for('static', filename='timg.jpg') }} " alt="timg" height = "200px" />
+    </div>
+
+    <div align="center" style="margin-top:30px">
+        <form method="POST" name = "form1">
+            <input type="text" name = "comments" placeholder = "请输出文本" style="height:30px;width:300px;"/>
+            <input type="submit" value = "查询" style="height:40px;width:50px;" />
+            <hr>
+            <input type="text" name = "result" placeholder = "分析结果" readonly="readonly" value = "{{ RESULT }}"/>
+        </form>
+    </div>
+
+</body>
+</html>

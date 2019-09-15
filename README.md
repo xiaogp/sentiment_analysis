@@ -1,6 +1,8 @@
 # sentiment_analysis
 一个基于LSTM，TextCNN，fasttext实现的购物网站评论情感分析，使用tf_serving和flask部署模型
 
+##### LSTM
+
 &emsp; 训练模型得到pb文件
 ```
 python data_preprocessing.py
@@ -26,7 +28,7 @@ curl -d '{"instances": [{"input_x": [122, 91, 342, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 python flask_demo.py
 ```
 
-![](/img/web.png)
+![](/lstm/img/web.png)
 
 &emsp; text_data 包含正样本 comments_positive.txt 负样本 comments_negative.txt
 ```
@@ -80,6 +82,49 @@ predict values: [0.00788898 0.99211097]
 tensorboard --logdir ./logs/summary
 ```
 
-![](/img/loss.png)
+![](/lstm/img/loss.png)
 
-![](/img/acc.png)
+![](/lstm/img/acc.png)
+
+
+##### textcnn
+
+&emsp; 训练
+```
+python train.py
+```
+
+&emsp; 预测
+```
+python predict.py --text "很差"
+predict values: [0.00267654 0.99732345]
+负向
+```
+
+##### fasttext
+
+&emsp; 执行脚本
+
+```
+python train.py
+
+-------------模型测试-------------
+accuracy: 0.903
+precision: 0.886
+recall: 0.915
+-------------混淆矩阵-------------
+[[1015  123]
+ [  89  954]]
+------------预览预测结果------------
+文本: 蒙牛 有 问题 伊利 有 问题 燕塘 有 问题 营养 快线 有 问题 奶粉 有 问题 甘 还 可以 饮 咩 呢	
+实际: __label__0	
+预测: __label__0
+
+文本: 自己 实用 最 重要 照相 ． Ｍ Ｐ ３ 播放 ． ６ ０ Ｍ 内存 ． 手感 好 ．	
+实际: __label__1	
+预测: __label__1
+
+文本: " 房间 可以 特别 的 套房 非常 不错 就是 餐厅 太脏 了 早餐 搞 得 没 胃口 "	
+实际: __label__1	
+预测: __label__1
+```
